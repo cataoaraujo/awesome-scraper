@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class AwesomeRequest {
 
-//    private HttpClient.Builder clientBuilder = HttpClient.newBuilder();
     private HttpRequest.Builder requestBuilder = null;
 
     private final Map<String, String> cookies = new HashMap<>();
@@ -53,25 +52,6 @@ public class AwesomeRequest {
         this.cookies.putAll(cookies);
         return this;
     }
-
-//    public AwesomeRequest proxy(InetSocketAddress proxyAddress) {
-//        this.clientBuilder.proxy(ProxySelector.of(proxyAddress));
-//        return this;
-//    }
-//
-//    public AwesomeRequest followRedirects(boolean followRedirects) {
-//        if (followRedirects) {
-//            this.clientBuilder.followRedirects(HttpClient.Redirect.ALWAYS);
-//        } else {
-//            this.clientBuilder.followRedirects(HttpClient.Redirect.NEVER);
-//        }
-//        return this;
-//    }
-//
-//    public HttpResponse<String> get() throws IOException, InterruptedException {
-//        this.generateHeaders();
-//        return this.clientBuilder.build().send(this.requestBuilder.GET().build(), HttpResponse.BodyHandler.asString());
-//    }
 
     public HttpResponse<String> get(HttpClient client) throws IOException, InterruptedException {
         this.generateHeaders();
